@@ -24,8 +24,10 @@ public class TeachersController : ApiController
     [HttpPost("create")]
     public async Task<IActionResult> CreateTeacher(TeacherRequest request)
     {
-        //var command = _mapper.Map<CreateTeacherCommand>(request);
-        var command = new CreateTeacherCommand(request.Name, request.Surname, request.Patronymic, request.UserId, GetJwtToken());
+        var command = _mapper.Map<CreateTeacherCommand>(request);
+        command.Token = GetJwtToken();
+        //command.Token = GetJwtToken();
+        //var command = new CreateTeacherCommand(request.Name, request.Surname, request.Patronymic, request.UserId, GetJwtToken());
         var result = await _mediator.Send(command);
         return result.Match(Ok, Problem);
     }

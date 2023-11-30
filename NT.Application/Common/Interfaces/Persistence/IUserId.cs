@@ -1,6 +1,6 @@
 ﻿namespace NT.Application.Common.Interfaces.Persistence;
 
-public abstract class TToken
+public record TToken(string Token)
 {
     public string Token { get; set; }
 }

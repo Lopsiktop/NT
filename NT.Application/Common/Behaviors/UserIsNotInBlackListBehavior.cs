@@ -8,7 +8,7 @@ namespace NT.Application.Common.Behaviors;
 
 public class UserIsNotInBlackListBehavior<TRequest, TResponse>
     : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IToken, IRequest<TResponse>
+    where TRequest : TToken, IRequest<TResponse>
     where TResponse : IErrorOr
 {
     private readonly INTDbContext _context;

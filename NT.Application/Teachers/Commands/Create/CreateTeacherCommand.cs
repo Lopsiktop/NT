@@ -5,5 +5,5 @@ using NT.Application.Teachers.Common;
 
 namespace NT.Application.Teachers.Commands.Create;
 
-public record CreateTeacherCommand(string Name, string Surname, string Patronymic, int UserId, string Token) :
-    IToken, IRequest<ErrorOr<TeacherResult>>;
+public record CreateTeacherCommand(string Name, string Surname, string Patronymic, int UserId, string Token)
+    : TToken(Token), IRequest<ErrorOr<TeacherResult>>;
